@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
-    const { data: session } = useSession();
+    const { data: session } = useSession(); // get session object using useSession
 
-    const [providers, setProviders] = useState(null);
+    const [providers, setProviders] = useState(null); // initial providers
     const [toggleDropdown, setToggleDropdown] = useState(false);
 
     useEffect(() => {
@@ -28,11 +28,13 @@ const Nav = () => {
                     height={30}
                     className='object-contain'
                 />
-                <p className='logo_text'>Promptopia</p>
+                <p className='logo_text'>PromptShare</p>
             </Link>
 
+            {console.log(providers)}
             {/* Desktop Navigation */}
             <div className='sm:flex hidden'>
+                {/*if the user is authenticated*/}
                 {session?.user ? (
                     <div className='flex gap-3 md:gap-5'>
                         <Link href='/create-prompt' className='black_btn'>
@@ -55,6 +57,7 @@ const Nav = () => {
                     </div>
                 ) : (
                     <>
+                        {/*show the authenticator providers for the user to log in*/}
                         {providers &&
                             Object.values(providers).map((provider) => (
                                 <button

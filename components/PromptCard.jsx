@@ -17,7 +17,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
 
         if (post.creator._id === session?.user.id) return router.push("/profile");
 
-        router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
+        router.push(`/profile/${post.creator._id}?name=${post.creator.username}`); // if the
     };
 
     const handleCopy = () => {
@@ -70,7 +70,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
                 className='font-inter text-sm blue_gradient cursor-pointer'
                 onClick={() => handleTagClick && handleTagClick(post.tag)}
             >
-                #{post.tag}
+                {post.tag}
             </p>
 
             {session?.user.id === post.creator._id && pathName === "/profile" && (

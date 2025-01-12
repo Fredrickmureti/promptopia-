@@ -1,10 +1,10 @@
-import "@/styles/global.css"
+import "@/styles/global.css";
 
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 
 export const metadata = {
-    title: "Promptopia",
+    title: "PromptShare",
     description: "Discover & Share AI Prompts",
 };
 
